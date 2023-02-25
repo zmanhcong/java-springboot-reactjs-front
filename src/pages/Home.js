@@ -37,9 +37,9 @@ function Home() {
                                     <td >{user.username}</td>
                                     <td >{user.email}</td>
                                     <td>
-                                        <button className='btn btn-primary mx-2'>View</button>
-                                        <button className='btn btn-outline-primary mx-2'>Edit</button>
-                                        <button className='btn btn-danger mx-2'>Delet</button>
+                                        <button className='btn btn-primary mx-1' style={{padding:'3px'}}>View</button>
+                                        <button className='btn btn-outline-primary mx-1' style={{padding:'3px'}}>Edit</button>
+                                        <button className='btn btn-danger mx-1' style={{padding:'3px'}}>Delete</button>
                                     </td>
                                 </tr>
                             ))
