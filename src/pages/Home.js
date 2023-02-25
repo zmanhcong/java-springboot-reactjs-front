@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function Home() {
+
+    const [users, setUsers] = useState([])
+
+    useEffect(()=> {
+        loadUsers();
+    },[])  //use ",[]" for run one time only
+
+    const loadUsers = async() => {
+        const result = await axios.get("http://localhost:8080/users-list");
+        console.log(result.data);
+    }
+
     return ( 
         <div className='container'>
             <div className='py-4'>
