@@ -42,7 +42,7 @@ function Home() {
                                     <td>
                                         <Link className="btn btn-primary mx-1" style={{padding:'3px'}}>View</Link>
                                         <Link className="btn btn-outline-primary mx-1" style={{padding:'3px'}} to={`/edituser/{user.id}`}>Edit</Link>
-                                        <Link className="btn btn-danger mx-1" style={{padding:'3px'}}>Delete</Link>
+                                        <Link className="btn btn-danger mx-1" style={{padding:'3px'}}>Delete</Link>  
                                     </td>
                                 </tr>
                             ))
