@@ -1,10 +1,13 @@
 import axios from 'axios';
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
-export default function AddUser(){
+export default function EditUser(){
 
     let navigate = useNavigate()
+
+    //useParams
+    const {id} = useParams()
 
     const [user, setUser] = useState({
         name:"",
@@ -21,12 +24,26 @@ export default function AddUser(){
             })
     }
 
+    useEffect(()=>{
+        loadUser()
+    },[])
+
     const onSubmit=async(e) => {
-        e.preventDefault(); //for not show parameter in URL
-        await axios.post("http://localhost:8080/users/create", user)
+        // e.preventDefault(); //for not show parameter in URL
+        await axios.put(`http://localhost:8080/users/edit/${id}`, user)
         navigate("/")  //await for wait request to complete, when complete, page will navigate to HomePage
     }
     
+    //lấy thông tin của user, để render ra màn hình. ví dụ: user 1: nmcong, email: zmanhcong..vv.vv
+    const loadUser = async () => {
+        try{
+            const result = await axios.get(`http://localhost:8080/users/getuserid/${id}`)
+            console.log(result.data);
+            setUser(result.data)
+        }catch(error){
+            console.log(error);
+        }
+    }
     return(
         <div className="container">
             <form onSubmit={(e) => onSubmit(e)}>
